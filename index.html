@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <section class="lado-imagem">
+            <img src="img/seguranca.png.png" alt="Imagem de login">
+        </section>
+
+        <section class="lado-form">
+            <h1>Bem-vindo!</h1>
+            <p>Entre com a sua conta para continuar</p>
+
+
+            <form id="form-login" novalidate>
+
+                <div class="campo">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu email">
+                    <small class="erro" id="erro-email"></small>
+                    
+                </div>
+
+                <div class="campo">
+                    <label for="senha">Senha</label>
+                    <div class="campo-senha">
+                        <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
+                        <small class="erro" id="erro-senha"></small>
+                        <button type="button" id="btn-mostrar" class="btn-mostrar">Mostrar</button>
+                    </div>
+                    <small class="erro" id="erro-senha"></small>
+                </div>
+
+                <button type="submit" class="btn-entrar">Entrar</button>
+
+                <p class="mensagem" id ="mensagem"></p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+ <div id="social-links">
+        <a href="https://github.com/HenriqueeSantana" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <ion-icon name="logo-github"></ion-icon>
+        </a>
+        <a href="https://www.instagram.com/__henrique.sant/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <a href="https://www.linkedin.com/in/henrique-santana-dev/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- Biblioteca dos ícones (Ionicons) -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

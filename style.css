@@ -1,0 +1,224 @@
+/* ===== ETAPA 1: base da página ===== */
+
+/* Variáveis: as cores ficam num lugar só */
+:root {
+  --escuro: #263238;
+  --cinza-claro: #dcdcdc;
+  --cinza-medio: #8a8a8a;
+  --borda: #cfd4d6;
+  --erro: #c62828;
+  --sucesso: #2e7d32;
+  --branco: #ffffff;
+}
+
+/* Reset: zera as margens padrão do navegador */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* padding e borda entram na largura total */
+}
+
+/* Centraliza tudo na tela */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--cinza-claro);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;  /* NOVO: card em cima, ícones embaixo */
+  align-items: center;
+  justify-content: center;
+  gap: 28px;               /* NOVO: espaço entre o card e os ícones */
+  padding: 20px;
+  color: var(--escuro);
+}
+
+
+/* ===== ETAPA 2: imagem e formulário lado a lado ===== */
+
+.container {
+  display: flex;           /* os dois filhos ficam lado a lado */
+  width: 100%;
+  max-width: 980px;
+  background: var(--branco);
+  border-radius: 16px;
+  overflow: hidden;        /* corta as pontas nos cantos arredondados */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.lado-imagem {
+  flex: 1;                 /* cada lado ocupa metade */
+  background: var(--cinza-claro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.lado-imagem img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;            /* mantém a proporção da imagem */
+}
+
+.lado-form {
+  flex: 1;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;  /* itens um embaixo do outro */
+  justify-content: center;
+}
+
+.lado-form h1 {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+/* ">" pega só o <p> que é filho direto da section (o subtítulo),
+   sem afetar o <p class="mensagem">, que está dentro do form */
+.lado-form > p {
+  color: var(--cinza-medio);
+  margin-bottom: 28px;
+}
+
+
+/* ===== ETAPA 3: campos ===== */
+
+.campo {
+  margin-bottom: 18px;
+}
+
+.campo label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.campo input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--borda);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Quando o campo está selecionado */
+.campo input:focus {
+  border-color: var(--escuro);
+  box-shadow: 0 0 0 3px rgba(38, 50, 56, 0.15);
+}
+
+/* Classe que o JavaScript adiciona quando há erro */
+.campo input.invalido {
+  border-color: var(--erro);
+}
+
+.erro {
+  display: block;
+  color: var(--erro);
+  font-size: 0.8rem;
+  margin-top: 5px;
+  min-height: 1em;         /* reserva o espaço e evita "pulos" */
+}
+
+
+/* ===== ETAPA 4: botão Mostrar dentro do campo da senha ===== */
+
+.campo-senha {
+  position: relative;      /* serve de referência para o botão */
+}
+
+.campo-senha input {
+  padding-right: 80px;     /* espaço para o botão não cobrir o texto */
+}
+
+.btn-mostrar {
+  position: absolute;      /* posiciona em relação à .campo-senha */
+  right: 10px;
+  top: 50%;
+  transform: translateY(-100%); /* centraliza na vertical */
+  background: none;
+  border: none;
+  color: var(--cinza-medio);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-mostrar:hover {
+  color: var(--escuro);
+}
+
+
+/* ===== ETAPA 5: botão Entrar e mensagem ===== */
+
+.btn-entrar {
+  width: 100%;
+  padding: 13px;
+  background: var(--escuro);
+  color: var(--branco);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-entrar:hover {
+  background: #37474f;
+}
+
+.btn-entrar:active {
+  transform: scale(0.98);  /* efeito de apertar */
+}
+
+.mensagem {
+  text-align: center;
+  margin-top: 14px;
+  min-height: 1.2em;
+  font-size: 0.9rem;
+  color: var(--sucesso);
+}
+
+/* ===== Redes sociais ===== */
+
+#social-links {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+}
+
+#social-links a {
+  display: flex;
+  color: var(--escuro);    /* escuro, para ter contraste com o fundo cinza */
+  font-size: 1.7rem;
+  transition: color 0.2s, transform 0.2s;
+}
+
+#social-links a:hover {
+  color: var(--cinza-medio);
+  transform: translateY(-3px);
+}
+
+
+/* ===== ETAPA 6: celular (telas menores que 760px) ===== */
+
+@media (max-width: 760px) {
+  .container {
+    flex-direction: column; /* imagem em cima, formulário embaixo */
+  }
+
+  .lado-imagem {
+    padding: 16px;
+  }
+
+  .lado-imagem img {
+    max-width: 240px;
+  }
+
+  .lado-form {
+    padding: 32px 24px;
+  }
+}
